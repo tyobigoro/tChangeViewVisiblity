@@ -10,11 +10,44 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var genrePickerView: UIView!
+    
+    @IBOutlet weak var genrePickerViewY: NSLayoutConstraint!
+    
+    var isVisible = false {
+        didSet {
+            if oldValue != isVisible {
+                changeVisiblity()
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
 
+    @IBAction func btnDidTap(_ sender: UIButton) {
+        
+        isVisible.toggle()
+        
+    }
+    
+    func changeVisiblity() {
+        
+        if isVisible {
+            self.genrePickerViewY.constant = 0
+        } else {
+            self.genrePickerViewY.constant = 250
+        }
+        
+        UIView.animate(withDuration: 0.5) { self.view.layoutIfNeeded() }
+        
+        print("self.view.frame:", self.view.frame)
+        print("genrePickerVie.frame:", genrePickerView.frame)
+    }
+    
 }
 
