@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var genrePickerView: UIView!
+    @IBOutlet weak var genrePickerView: XIBView!
     
     @IBOutlet weak var genrePickerViewY: NSLayoutConstraint!
     
